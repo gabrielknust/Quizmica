@@ -10,29 +10,37 @@
 	<script type="text/javascript">
 		$(function(){
 			function shuffle(o){
-	   			 for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+	   			for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x){};
 	    		return o;
 			};
 			var maxImg = 12;
 			for (var i = maxImg, a=[]; i--;) {a.push(i)};
 			shuffle(a);
 			console.log(a);
-			var img=0;
-			for(img=1;img<=10;img++){
+			var que = [];
+			var question=1;
+			for(var imga=0;imga<=10;imga++){
 				$.each(questoes,function(id,obj){
-					if(a[img]==obj.id)
+					if(a[imga]==obj.id)
 					{
-						var test=65;
-						$(".pergunta").append($("<li />").addClass("pergunta_item"));
-						$(".pergunta_item").append($("<img />").attr("src",obj.foto));
-						var que=obj.alternativas;
-						for(var q=0;q<que.length;q++){
-							$(".pergunta_item").append($("<div />").addClass("option").append($("<label />").html(que[q]).append($("<input />").attr("type","radio").attr("name","question-"+img+"-answer").attr("value",String.fromCharCode(test)))));
-							test++;
-						};
+						$(".pergunta").append($("<li />").addClass("pergunta_item"+question).append($("<img />").attr("src",obj.foto)));
+						que.push(obj.alternativas);
+						question++;
+						//for(var q=0;q<que.length;q++){
+						//	$(".pergunta_item").append($("<div />").addClass("option").append($("<label />").html(que[q]).append($("<input />").attr("type","radio").attr("name","question-"+imga+"-answer").attr("value",String.fromCharCode(test)))));
+						//	test++;
+						//};
 					}
 				});
 			}
+		for(question=1;question<11;question++){
+			console.log(que[question]);
+			var test=65;
+			for(var y=0;y<=que[question];y++){
+			$(".pergunta_item"+question).append($("<div />").addClass("option").append($("<label />").html("Alternativa "+String.fromCharCode(test)).append($("<input />").attr("type","radio").attr("name","question-"+question+"-answer").attr("value",String.fromCharCode(test)))));
+			test++;
+		}
+		}
 		});
 	</script>
 </head> 
