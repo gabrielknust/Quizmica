@@ -42,6 +42,30 @@ body{
 	color: #037a37;
 	text-transform: uppercase;
 }
+
 .option:last-child{
-	padding-bottom: 50px;
+	margin-bottom: 50px;
+}
+.fa{
+	color: #fff;
+	font-size: 10em;
+}
+.fa-chevron-left{
+	position: relative;
+	top: -5vh;
+	left: -7vw;
+}
+.fa-chevron-right{
+	position: relative;
+	top: -5vh;
+	right: -7vw;
+}
+.conteiner-perguntas{
+	position: relative;
+}
+.button{
+		border: none;
+		background-color: #00ffd4;
+		padding: 15px 30px ;
+		margin: 5% 20% 0 20%;
 }

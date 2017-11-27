@@ -1,9 +1,13 @@
+
 .perguntas{
   display: none;
   width: 100%;
-  height: 60vh;
+  height: 90vh;
   text-align: center;
   background-color:
+}
+.perguntas img{
+  margin-top: 10px;
 }
 .perguntas:target{
   display: block;
